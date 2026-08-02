@@ -40,8 +40,7 @@ Route::get('/', function () {
     return redirect()->route('accueil');
 });
 
-Route::get('/accueil', [HomeController::class, 'index'])->name('accueil');
-// CONTACT
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
@@ -287,13 +286,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         [AdminNotificationController::class, 'supprimer']
     )->name('notifications.supprimer');
 
-
-    
-
-
-
-
-
 });
 
+Route::get('/check-log', function () {
+    return nl2br(file_get_contents(storage_path('logs/laravel.log')));
+});
 require __DIR__.'/auth.php';
