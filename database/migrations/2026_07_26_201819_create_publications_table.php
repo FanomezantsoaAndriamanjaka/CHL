@@ -10,67 +10,39 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('publications', function (Blueprint $table) {
+{
+    Schema::create('publications', function (Blueprint $table) {
 
-            $table->id();
+        $table->id();
 
-            /*
-            |--------------------------------------------------------------------------
-            | Informations principales
-            |--------------------------------------------------------------------------
-            */
+        $table->string('nom');
 
-            $table->string('nom');
+        $table->string('slug')->unique();
 
-            $table->string('slug')->unique();
+        $table->string('categorie');
 
-            $table->string('categorie');
+        $table->longText('description');
 
-            $table->longText('description');
+        $table->string('image')->nullable();
 
-            /*
-            |--------------------------------------------------------------------------
-            | Médias
-            |--------------------------------------------------------------------------
-            */
+        $table->decimal('prix', 12, 2)->default(0);
 
-            $table->string('image')->nullable();
+        $table->boolean('reservation_disponible')
+              ->default(true);
 
-            /*
-            |--------------------------------------------------------------------------
-            | Réservation
-            |--------------------------------------------------------------------------
-            */
+        $table->boolean('publie')
+              ->default(true);
 
-            $table->decimal('prix', 12, 2)->default(0);
+        $table->enum('statut',[
+            'Actif',
+            'Inactif'
+        ])
+        ->default('Actif');
 
-            $table->boolean('reservation_disponible')->default(true);
+        $table->timestamps();
 
-            /*
-            |--------------------------------------------------------------------------
-            | Publication
-            |--------------------------------------------------------------------------
-            */
-
-            $table->boolean('publie')->default(true);
-
-            $table->timestamps();
-
-
-            // Statut
-
-            $table->enum('statut',[
-                'Actif',
-                'Inactif'
-            ])
-            ->default('Actif');
-
-
-            $table->timestamps();
-
-        });
-    }
+    });
+}
 
     /**
      * Reverse the migrations.
