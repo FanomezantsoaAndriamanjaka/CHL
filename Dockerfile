@@ -11,6 +11,13 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
+
+
+RUN mkdir -p storage/framework/cache \
+    storage/framework/sessions \
+    storage/framework/views \
+    bootstrap/cache
+
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN composer install --no-dev --optimize-autoloader
@@ -26,7 +33,7 @@ RUN php artisan migrate --force || true
 
 RUN php artisan config:clear
 RUN php artisan cache:clear
-RUN php artisan view:clear
+
 
 EXPOSE 8000
 
