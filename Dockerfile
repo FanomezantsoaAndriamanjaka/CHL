@@ -11,30 +11,15 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
-
-
-RUN mkdir -p storage/framework/cache \
-    storage/framework/sessions \
-    storage/framework/views \
-    bootstrap/cache
-
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN composer install --no-dev --optimize-autoloader
 
-# Mamorona dossier Laravel ilaina
-RUN mkdir -p storage/framework/{cache,sessions,views} \
-    && mkdir -p bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
-
 RUN php artisan storage:link || true
 
-RUN php artisan migrate --force || true
-
-RUN php artisan config:clear
-RUN php artisan cache:clear
-
+RUN php artisan config:clear || true
+RUN php artisan cache:clear || true
 
 EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0 --port=8000
+CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
