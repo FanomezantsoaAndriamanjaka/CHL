@@ -16,11 +16,8 @@ RUN composer install --no-dev --optimize-autoloader
 
 RUN php artisan storage:link || true
 
+RUN php artisan migrate --force || true
+
 EXPOSE 8000
 
-RUN mkdir -p storage/framework/cache \
-    storage/framework/sessions \
-    storage/framework/views \
-    bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
 CMD php artisan serve --host=0.0.0.0 --port=8000
