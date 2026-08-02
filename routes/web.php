@@ -28,12 +28,17 @@ use App\Http\Controllers\Admin\PublicationController as AdminPublicationControll
 
 
 
-
 /*
 |--------------------------------------------------------------------------
 | ACCUEIL
 |--------------------------------------------------------------------------
 */
+
+Route::get('/accueil', [HomeController::class, 'index'])->name('accueil');
+
+Route::get('/', function () {
+    return redirect()->route('accueil');
+});
 
 Route::get('/accueil', [HomeController::class, 'index'])->name('accueil');
 // CONTACT
