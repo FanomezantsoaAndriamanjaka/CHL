@@ -99,6 +99,26 @@ return [
             'sslmode' => env('DB_SSLMODE', 'prefer'),
         ],
 
+
+        // Connexion PostgreSQL Neon (Render)
+        'pgsql_remote' => [
+            'driver' => 'pgsql',
+            'host' => env('DB_HOST_REMOTE'),
+            'port' => env('DB_PORT_REMOTE', '5432'),
+            'database' => env('DB_DATABASE_REMOTE'),
+            'username' => env('DB_USERNAME_REMOTE'),
+            'password' => env('DB_PASSWORD_REMOTE'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'require',
+            'options' => [
+                PDO::PGSQL_ATTR_DISABLE_PREPARES => true,
+            ],
+        ],
+
+
+
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
@@ -110,8 +130,6 @@ return [
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
-            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
-            // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
     ],
@@ -130,6 +148,34 @@ return [
     'migrations' => [
         'table' => 'migrations',
         'update_date_on_publish' => true,
+    ],
+
+
+    'pgsql_remote' => [
+        'driver' => 'pgsql',
+        'url' => env('DATABASE_URL'),
+        'host' => env('DB_HOST_REMOTE'),
+        'port' => env('DB_PORT_REMOTE', '5432'),
+        'database' => env('DB_DATABASE_REMOTE'),
+        'username' => env('DB_USERNAME_REMOTE'),
+        'password' => env('DB_PASSWORD_REMOTE'),
+        'charset' => 'utf8',
+        'prefix' => '',
+        'schema' => 'public',
+    ],
+
+
+    'pgsql_remote' => [
+        'driver' => 'pgsql',
+        'host' => env('DB_HOST_REMOTE'),
+        'port' => env('DB_PORT_REMOTE', 5432),
+        'database' => env('DB_DATABASE_REMOTE'),
+        'username' => env('DB_USERNAME_REMOTE'),
+        'password' => env('DB_PASSWORD_REMOTE'),
+        'charset' => 'utf8',
+        'prefix' => '',
+        'schema' => 'public',
+        'sslmode' => 'require',
     ],
 
     /*
