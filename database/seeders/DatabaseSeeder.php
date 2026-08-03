@@ -15,11 +15,4 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
         ]);
     }
-
-    public function run(): void
-{
-    $this->call([
-        AdminSeeder::class,
-    ]);
-}
 }
