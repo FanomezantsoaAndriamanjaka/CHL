@@ -28,7 +28,7 @@ RUN chmod -R 775 storage bootstrap/cache
 RUN php artisan config:clear || true
 RUN php artisan cache:clear || true
 CMD php artisan optimize:clear && php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=8000
-RUN php artisan optimize:clear
+
 
 EXPOSE 8000
 
