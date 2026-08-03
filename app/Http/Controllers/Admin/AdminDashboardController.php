@@ -18,7 +18,6 @@ class AdminDashboardController extends Controller
     public function index()
     {
 
-
         /*
         |--------------------------------------------------------------------------
         | PATIENTS
@@ -31,25 +30,21 @@ class AdminDashboardController extends Controller
             ->count();
 
 
-
         // Nouveaux patients aujourd'hui
         $nouveauxPatients = User::where('role', 'patient')
             ->whereDate('created_at', today())
             ->count();
 
 
-
-        // Patients par mois (Graphique)
+        // Patients par mois (Graphique PostgreSQL)
         $patientsParMois = User::where('role', 'patient')
             ->select(
-                DB::raw('MONTH(created_at) as mois'),
+                DB::raw('EXTRACT(MONTH FROM created_at) as mois'),
                 DB::raw('COUNT(*) as total')
             )
-            ->groupBy(DB::raw('MONTH(created_at)'))
-            ->orderBy(DB::raw('MONTH(created_at)'))
+            ->groupBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
+            ->orderBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
             ->get();
-
-
 
 
 
@@ -65,7 +60,6 @@ class AdminDashboardController extends Controller
 
 
 
-
         // Réservations aujourd'hui
         $reservationsAujourdHui = Reservation::whereDate(
             'date_reception',
@@ -75,18 +69,14 @@ class AdminDashboardController extends Controller
 
 
 
-
-
-        // Réservations par mois (Graphique)
+        // Réservations par mois (Graphique PostgreSQL)
         $reservationsParMois = Reservation::select(
-                DB::raw('MONTH(date_reception) as mois'),
+                DB::raw('EXTRACT(MONTH FROM date_reception) as mois'),
                 DB::raw('COUNT(*) as total')
             )
-            ->groupBy(DB::raw('MONTH(date_reception)'))
-            ->orderBy(DB::raw('MONTH(date_reception)'))
+            ->groupBy(DB::raw('EXTRACT(MONTH FROM date_reception)'))
+            ->orderBy(DB::raw('EXTRACT(MONTH FROM date_reception)'))
             ->get();
-
-
 
 
 
@@ -95,10 +85,6 @@ class AdminDashboardController extends Controller
             ->latest()
             ->take(5)
             ->get();
-
-
-
-
 
 
 
@@ -114,7 +100,6 @@ class AdminDashboardController extends Controller
 
 
 
-
         // Factures en attente
         $facturesEnAttente = Facture::where(
             'statut',
@@ -124,20 +109,14 @@ class AdminDashboardController extends Controller
 
 
 
-
-
-        // Factures par mois (Graphique)
+        // Factures par mois (Graphique PostgreSQL)
         $facturesParMois = Facture::select(
-                DB::raw('MONTH(created_at) as mois'),
+                DB::raw('EXTRACT(MONTH FROM created_at) as mois'),
                 DB::raw('COUNT(*) as total')
             )
-            ->groupBy(DB::raw('MONTH(created_at)'))
-            ->orderBy(DB::raw('MONTH(created_at)'))
+            ->groupBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
+            ->orderBy(DB::raw('EXTRACT(MONTH FROM created_at)'))
             ->get();
-
-
-
-
 
 
 
@@ -149,10 +128,6 @@ class AdminDashboardController extends Controller
 
 
         $publications = Publication::count();
-
-
-
-
 
 
 
@@ -172,6 +147,11 @@ class AdminDashboardController extends Controller
 
 
 
+        /*
+        |--------------------------------------------------------------------------
+        | NOTIFICATIONS
+        |--------------------------------------------------------------------------
+        */
 
 
         $notifications = Notification::where('user_id', Auth::id())
@@ -184,6 +164,8 @@ class AdminDashboardController extends Controller
             ->where('lu', false)
             ->count();
 
+
+
         /*
         |--------------------------------------------------------------------------
         | RETURN DASHBOARD
@@ -195,33 +177,24 @@ class AdminDashboardController extends Controller
             'admin.dashboard',
             compact(
 
-                // Patients
                 'patients',
                 'nouveauxPatients',
                 'patientsParMois',
 
-
-                // Reservations
                 'reservations',
                 'reservationsAujourdHui',
                 'reservationsParMois',
                 'dernieresReservations',
 
-
-                // Factures
                 'factures',
                 'facturesEnAttente',
                 'facturesParMois',
 
-
-                // Publications
                 'publications',
-                
-                // Notifications
+
                 'notifications',
                 'notificationsCount',
 
-                // Consultations
                 'consultations'
 
             )
