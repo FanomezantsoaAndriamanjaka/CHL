@@ -459,7 +459,7 @@ Déconnexion
 
 <h3 class="text-2xl font-bold text-blue-700">
 
-    🏥 L'équipe de CHL vous souhaite une bonne santé
+     L'équipe de CHL vous souhaite une bonne santé
 
 </h3>
 

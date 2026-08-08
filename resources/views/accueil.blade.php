@@ -3,18 +3,18 @@
 @section('content')
 
 
-{{-- HERO SECTION --}}
+
 
 {{-- HERO SECTION --}}
-<section id="accueil" class="scroll-mt-20 w-full">
+<section class="mx-2 mt-10  border border-green-400 rounded-xl bg-white">
 
-    <div class="relative w-full h-96 min-h-screen rounded-2xl overflow-hidden">
+    <div class="relative h-96 min-h-screen rounded-xl overflow-hidden">
 
         {{-- IMAGE BACKGROUND --}}
         <img
             src="{{ asset('images/clinique.jpg') }}"
             alt="CHL Toliara"
-            class="absolute inset-0 w-full h-full rounded-2xl object-cover"
+            class="absolute inset-0 w-full h-full rounded-xl object-cover"
         >
 
         {{-- OVERLAY --}}
@@ -78,10 +78,10 @@
 </section>
 
 <!-- Services -->
-<section class="mx-4 mt-20  border border-green-400 rounded-2xl bg-white">
+<section class="mx-2 mt-20  border border-green-400 rounded-2xl bg-white">
 
-<div id="services"
-class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8">       <h2 class="text-3xl font-bold text-center text-blue-700">
+<div id="services" class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-200 shadow-lg pl-2 pr-2 pb-2 pt-8"> 
+        <h2 class="text-2xl font-bold text-center text-green-700">
             Nos services médicaux
         </h2>
 
@@ -89,7 +89,7 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
         <div class="grid md:grid-cols-4  text-center gap-6 mt-10">
 
 
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-white p-2 rounded-xl shadow">
 
                 <h3 class="font-bold text-blue-600 text-xl">
                     🩺 Médecine générale
@@ -104,7 +104,7 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
 
 
 
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-white p-2 rounded-xl shadow">
 
                 <h3 class="font-bold text-blue-600 text-xl">
                     👶 Pédiatrie
@@ -119,7 +119,7 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
 
 
 
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-white p-2 rounded-xl shadow">
 
                 <h3 class="font-bold text-blue-600 text-xl">
                     🤰 Gynécologie
@@ -135,7 +135,7 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
 
 
 
-            <div class="bg-white p-6 rounded-xl shadow">
+            <div class="bg-white p-2 rounded-xl shadow">
 
                 <h3 class="font-bold text-blue-600 text-xl">
                     🚑 Urgences
@@ -158,16 +158,16 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
 
 
 
-<section class="mx-4 mt-6  border border-green-400 rounded-2xl bg-white">
+<section class="mx-2 mt-6  border border-green-400 rounded-2xl bg-white">
   <!-- DESCRIPTION CABINET MEDICAL -->
 
-<div class="mt-2 mb-2 bg-white mx-2  border border-blue-50  shadow-lg pt-2 pl-8 pr-8 pb-8">
+<div class="mt-2 mb-2 bg-white mx-2  border border-blue-200  shadow-lg pt-2 pl-2 pr-2 pb-8">
 
         <div id="apropos"
-        class="scroll-mt-28 mt-2 mb-4 bg-white mx-auto border border-blue-100 rounded-2xl shadow-lg pt-2">
+        class="scroll-mt-28 mt-2 mb-4 bg-white mx-auto border border-blue-50 rounded-2xl shadow-lg pt-2">
 
-            <h1 class="text-4xl mt-6 font-bold text-blue-700 text-center mb-6">
-                A propos de la CHL Toliara
+            <h1 class="text-2xl mt-6 font-bold text-blue-700 text-center mb-6">
+                Qui est CHL ?
             </h1>
 
         </div>
@@ -350,16 +350,16 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
 {{-- CONTACT SECTION --}}
 {{-- ========================================================= --}}
 
-<section id="contact" class="mx-4 mt-6  border border-green-400 rounded-2xl bg-white">
+<section id="contact" class="mx-2 mt-20 bg-white scroll-mt-28 border border-green-400 p-2 rounded-2xl bg-white">
  
-<div class="mt-2 mb-2 bg-white mx-2  border border-blue-50  shadow-lg pt-2 pl-8 pr-8 pb-8">
+   
 
 
         {{-- ================================================= --}}
         {{-- TITRE PRINCIPAL --}}
         {{-- ================================================= --}}
 
-        <div class="text-center mb-12">
+        <div class="text-center border p-6 border-blue-50 rounded-2xl mb-8">
 
             <div class="flex justify-center mb-4">
 
@@ -376,8 +376,8 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
             </div>
 
 
-            <h1 class="text-3xl md:text-4xl lg:text-5xl
-                       font-extrabold text-blue-800">
+            <h1 class="text-2xl md:text-4xl lg:text-5xl
+                       font-bold text-blue-800">
 
                 Contact et Adresse
 
@@ -417,8 +417,9 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
                 class="lg:col-span-1
                        bg-white
                        rounded-3xl
-                       border border-blue-100
+                       border border-blue-50
                        shadow-xl
+                       pb-2
                        overflow-hidden">
 
 
@@ -427,8 +428,8 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
                 <div
                     class="bg-gradient-to-r
                            from-blue-700
-                           to-cyan-500
-                           px-6 py-6
+                           to-cyan-50
+                           py-6 px-2
                            text-white">
 
                     <div class="flex items-center gap-4">
@@ -464,7 +465,7 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
 
                 {{-- INFORMATIONS --}}
 
-                <div class="p-6 space-y-6">
+                <div class="p-2 mx-2 space-y-6">
 
 
                     {{-- ADRESSE --}}
@@ -1090,7 +1091,7 @@ class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8"
         </div>
 
 
-    </div>
+  
 
 </section>
 
