@@ -622,7 +622,7 @@ src="{{ public_path('images/cachet.png') }}">
 
 
 <b>
-CLINIQUE HADASSAH LIANTSOA
+CHL
 </b>
 
 <br>

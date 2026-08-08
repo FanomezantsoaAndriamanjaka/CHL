@@ -41,7 +41,7 @@
 
         <p class="hidden lg:block text-blue-200 text-sm mt-1">
 
-            Clinique Hadassah Liantsoa
+            CHL
 
         </p>
 

@@ -38,213 +38,243 @@ x-data="{open:false}">
 
 {{-- ================= NAVBAR ================= --}}
 
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
 
-<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur shadow-md">
 
+    <div class="w-full px-6 lg:px-16 py-3 flex items-center justify-between">
 
-<div class="max-w-7xl mx-auto px-4">
 
+        {{-- LOGO --}}
+        <a href="{{ route('accueil') }}"
+           class="flex items-center gap-3">
 
-<div class="h-20 flex items-center justify-between">
 
+            <div class="w-14 h-14 rounded-full overflow-hidden 
+            border-4 border-blue-600 shadow-lg">
 
 
-{{-- LOGO --}}
+                <img
+                src="{{ asset('images/hopital.jpg') }}"
+                alt="CHL"
+                class="w-full h-full object-cover">
 
-<a href="/accueil"
-class="flex items-center">
 
+            </div>
 
-<div class="w-14 h-14 rounded-full overflow-hidden 
-border-4 border-blue-600 shadow-lg">
 
+            <span class="text-xl font-bold text-blue-700 uppercase">
+                CHL
+            </span>
 
-<img
-src="{{ asset('images/hopital.jpg') }}"
-alt="CHL"
-class="w-full h-full object-cover">
 
+        </a>
 
-</div>
 
 
-</a>
 
 
+        {{-- MENU DESKTOP --}}
+        <div class="hidden lg:flex items-center gap-8">
 
 
+            <a href="#accueil"
+            class="flex items-center gap-2 uppercase text-sm font-semibold
+            tracking-wide text-gray-700
+            hover:text-blue-700 hover:border-b-2 
+            hover:border-blue-700 pb-2 px-2 transition">
 
-{{-- MENU DESKTOP --}}
 
+                <i class="fa-solid fa-house text-blue-600"></i>
 
-<div class="hidden lg:flex items-center gap-2">
+                Accueil
 
 
+            </a>
 
-<a href="/accueil"
-class="mobile-link">
 
-<i class="fa-solid fa-house text-blue-600"></i>
 
-Accueil
 
-</a>
 
-<a href="{{ route('publications.index') }}"
-class="mobile-link">
+            <a href="{{ route('publications.index') }}"
+            class="flex items-center gap-2 uppercase text-sm font-semibold
+            tracking-wide text-gray-700
+            hover:text-blue-700 hover:border-b-2 
+            hover:border-blue-700 pb-2 px-2 transition">
 
-<i class="fa-solid fa-hand text-blue-600"></i>
 
-Publications
+                <i class="fa-solid fa-newspaper text-blue-600"></i>
 
-</a>
+                Publications
 
 
-<a href="#services"
-class="mobile-link">
+            </a>
 
-<i class="fa-solid fa-book-medical text-green-600"></i>
 
-Services
 
-</a>
 
 
+            <a href="#services"
+            class="flex items-center gap-2 uppercase text-sm font-semibold
+            tracking-wide text-gray-700
+            hover:text-blue-700 hover:border-b-2 
+            hover:border-blue-700 pb-2 px-2 transition">
 
 
+                <i class="fa-solid fa-book-medical text-green-600"></i>
 
-<a href="#apropos"
-class="mobile-link">
+                Services
 
-<i class="fa-solid fa-hospital text-cyan-600"></i>
 
-À propos
+            </a>
 
-</a>
 
 
 
 
+            <a href="#apropos"
+            class="flex items-center gap-2 uppercase text-sm font-semibold
+            tracking-wide text-gray-700
+            hover:text-blue-700 hover:border-b-2 
+            hover:border-blue-700 pb-2 px-2 transition">
 
-<a href="{{ route('contact') }}"
-class="mobile-link">
 
-<i class="fa-solid fa-phone text-purple-600"></i>
+                <i class="fa-solid fa-hospital text-cyan-600"></i>
 
-Contact
+                À propos
 
-</a>
 
+            </a>
 
 
 
 
-<hr class="my-2">
 
+            <a href="#contact"
+            class="flex items-center gap-2 uppercase text-sm font-semibold
+            tracking-wide text-gray-700
+            hover:text-blue-700 hover:border-b-2 
+            hover:border-blue-700 pb-2 px-2 transition">
 
 
+                <i class="fa-solid fa-phone text-purple-600"></i>
 
+                Contact
 
-@guest
 
+            </a>
 
-<a href="{{ route('register') }}"
-class="mobile-link">
 
-<i class="fa-solid fa-user-plus text-blue-600"></i>
 
-Inscription
 
-</a>
 
+            @guest
 
 
+                <a href="{{ route('register') }}"
+                class="flex items-center gap-2 uppercase text-sm font-semibold
+                tracking-wide text-gray-700
+                hover:text-blue-700 hover:border-b-2 
+                hover:border-blue-700 pb-2 px-2 transition">
 
-<a href="{{ route('login') }}"
-class="mobile-link">
 
-<i class="fa-solid fa-right-to-bracket text-green-600"></i>
+                    <i class="fa-solid fa-user-plus text-blue-600"></i>
 
-Connexion
+                    Inscription
 
-</a>
 
+                </a>
 
 
-@else
 
 
+                <a href="{{ route('login') }}"
+                class="flex items-center gap-2 uppercase text-sm font-semibold
+                tracking-wide text-gray-700
+                hover:text-blue-700 hover:border-b-2 
+                hover:border-blue-700 pb-2 px-2 transition">
 
-<a href="{{ route('dashboard') }}"
-class="mobile-link">
 
-<i class="fa-solid fa-user-circle text-blue-600"></i>
+                    <i class="fa-solid fa-right-to-bracket text-green-600"></i>
 
-Mon compte
+                    Connexion
 
-</a>
 
+                </a>
 
 
 
 
-<form method="POST"
-action="{{ route('logout') }}">
+            @else
 
-@csrf
 
 
-<button
-type="submit"
-class="mobile-link w-full text-red-600">
 
+                <a href="{{ route('dashboard') }}"
+                class="flex items-center gap-2 uppercase text-sm font-semibold
+                tracking-wide text-gray-700
+                hover:text-blue-700 hover:border-b-2 
+                hover:border-blue-700 pb-2 px-2 transition">
 
-<i class="fa-solid fa-right-from-bracket"></i>
 
-Déconnexion
+                    <i class="fa-solid fa-user-circle text-blue-600"></i>
 
+                    Mon compte
 
-</button>
 
+                </a>
 
-</form>
 
 
 
 
-@endguest
+                <form method="POST" action="{{ route('logout') }}">
 
+                    @csrf
 
 
-</div>
+                    <button
+                    class="flex items-center gap-2 uppercase text-sm font-semibold
+                    tracking-wide text-red-600
+                    hover:text-red-800 hover:border-b-2 
+                    hover:border-red-600 pb-2 px-2 transition">
 
 
+                        <i class="fa-solid fa-right-from-bracket"></i>
 
+                        Déconnexion
 
 
-{{-- HAMBURGER MOBILE --}}
+                    </button>
 
 
-<button
-@click="open=!open"
-class="lg:hidden text-2xl text-blue-700">
+                </form>
 
 
-<i class="fa-solid"
-:class="open ? 'fa-xmark':'fa-bars'">
 
-</i>
+            @endguest
 
 
-</button>
 
+        </div>
 
 
-</div>
 
 
 
-</div>
+        {{-- HAMBURGER MOBILE --}}
+        <button
+        @click="open=!open"
+        class="lg:hidden text-3xl text-blue-700 focus:outline-none">
+
+
+            <i class="fa-solid fa-bars"></i>
+
+
+        </button>
+
+
+
+    </div>
 
 
 </nav>
@@ -258,16 +288,15 @@ x-show="open"
 x-transition
 @click.outside="open=false"
 
-class="lg:hidden absolute top-20 right-4
-w-48 bg-white rounded-2xl shadow-xl 
-border border-blue-200 p-3">
-
+class="fixed top-20 right-4
+w-48 bg-white rounded-2xl shadow-xl
+border border-blue-200 p-3 lg:hidden z-50">
 
 <div class="flex flex-col gap-1">
 
 
 
-<a href="/accueil"
+<a href="#accueil"
 class="mobile-link">
 
 <i class="fa-solid fa-house text-blue-600"></i>
@@ -312,7 +341,7 @@ class="mobile-link">
 
 
 
-<a href="{{ route('contact') }}"
+<a href="#contact"
 class="mobile-link">
 
 <i class="fa-solid fa-phone text-purple-600"></i>
@@ -408,12 +437,11 @@ Déconnexion
 {{-- ================= CONTENU ================= --}}
 
 
-<main class="min-h-screen">
+<main class="pt-24">
 
     @yield('content')
 
 </main>
-
 
 
 
@@ -551,7 +579,7 @@ LinkedIn
 
 © {{ date('Y') }}
 
-Site Web officiel de Clinique Hadassah Liantsoa.
+Site Web officiel de CHL.
 
 
 <br>

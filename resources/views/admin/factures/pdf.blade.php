@@ -274,7 +274,7 @@ Merci pour votre confiance.
 
 
 <p>
-Clinique Hadassah Liantsoa
+CHL
 </p>
 
 

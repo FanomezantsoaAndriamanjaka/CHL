@@ -4,7 +4,7 @@
 <div class="mb-6 text-center">
 
     <h1 class="text-3xl font-bold text-blue-700">
-        🏥 Clinique Hadassah Liantsoa
+        🏥 CHL
     </h1>
 
     <p class="mt-2 text-gray-500">

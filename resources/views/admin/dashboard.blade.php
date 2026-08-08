@@ -17,7 +17,7 @@
 
 
     <p class="mt-3 text-blue-100 text-lg">
-        Tableau de bord de la Clinique Hadassah Liantsoa.
+        Tableau de bord de la CHL.
         Gérez facilement les patients, réservations, factures et publications.
     </p>
 

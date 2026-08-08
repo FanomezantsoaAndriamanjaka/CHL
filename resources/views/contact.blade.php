@@ -1,30 +1,30 @@
+
 @extends('layouts.navbars')
 
 @section('content')
 
-{{-- HERO SECTION --}}
-
-<section class="mx-4 mt-6 mb-6 rounded-3xl bg-white border border-blue-100 shadow-xl overflow-hidden">
+<div class="w-full space-y-8">
 
 
-    <div class="bg-gradient-to-r from-blue-800 via-blue-700 to-cyan-500 
-                rounded-3xl p-8 md:p-12 text-white">
+    {{-- ========================================================= --}}
+    {{-- HERO SECTION --}}
+    {{-- ========================================================= --}}
 
+    <section
+        class="bg-gradient-to-r from-blue-800 via-blue-700 to-cyan-500
+               rounded-3xl mx-4 p-8 md:p-12 text-white shadow-xl">
 
 
         {{-- TITRE --}}
 
         <div class="text-center">
 
-
-            <h1 class="text-5xl md:text-6xl font-extrabold">
-
+            <h1 class="text-5xl md:text-6xl font-extrabold tracking-wide">
                 CHL
-
             </h1>
 
-
-            <p class="mt-4 text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
+            <p class="mt-4 text-lg md:text-xl text-blue-100
+                      max-w-3xl mx-auto leading-relaxed">
 
                 Votre centre médical de confiance pour des soins de qualité,
                 un accompagnement personnalisé et une prise en charge adaptée
@@ -32,151 +32,138 @@
 
             </p>
 
-
         </div>
-
-
 
 
 
         {{-- LOGO / IMAGE CENTRALE --}}
 
-
         <div class="flex justify-center mt-10">
 
-
-            <div class="w-44 h-44 md:w-52 md:h-52 
-                        rounded-full bg-white 
-                        shadow-2xl 
-                        border-8 border-blue-100 
-                        overflow-hidden">
-
+            <div
+                class="w-44 h-44 md:w-52 md:h-52
+                       rounded-full bg-white
+                       shadow-2xl
+                       border-8 border-blue-100
+                       overflow-hidden">
 
                 <img
                     src="{{ asset('images/hopital.jpg') }}"
                     alt="CHL"
                     class="w-full h-full object-cover">
 
-
             </div>
 
-
         </div>
-
-
-
 
 
 
         {{-- BOUTONS --}}
 
-
         <div class="mt-10 flex flex-wrap justify-center gap-4">
 
 
-            <p href="{{ route('register') }}"
-            class="bg-white text-blue-700 px-8 py-3 rounded-xl 
-                   font-bold shadow-lg hover:scale-105 transition">
-
+            <a
+                href="{{ route('register') }}"
+                class="bg-white text-blue-700
+                       px-8 py-3 rounded-xl
+                       font-bold shadow-lg
+                       hover:scale-105
+                       hover:bg-blue-50
+                       transition duration-300">
 
                 <i class="fa-solid fa-calendar-check mr-2"></i>
 
                 Prendre rendez-vous
 
-
-</p>
-
+            </a>
 
 
 
+            <a
+                href="#contact-form"
+                class="border-2 border-white
+                       px-8 py-3 rounded-xl
+                       font-bold
+                       hover:bg-white
+                       hover:text-blue-700
+                       transition duration-300">
 
-            <p href="#services"
-            class="border-2 border-white px-8 py-3 rounded-xl 
-                   font-bold hover:bg-white hover:text-blue-700 transition">
+                <i class="fa-solid fa-paper-plane mr-2"></i>
 
+                Nous contacter
 
-                <i class="fa-solid fa-hospital mr-2"></i>
-
-                Profitez les services
-
-
-            </p>
-
-
+            </a>
 
         </div>
 
-
-
-    </div>
-
-
-</section>
-
-
-<section class="mx-4 p-2 mt-6 border border-green-400 rounded-2xl bg-white shadow-xl">
-
-
-    {{-- HEADER --}}
-
-    <div class="bg-gradient-to-r mb-2 from-blue-700 to-cyan-500 
-                rounded-t-xl p-8 text-white border border-blue-400 ">
-
-
-        <h1 class="text-4xl font-bold">
-
-            📞 Contactez-nous
-
-        </h1>
-
-
-        <p class="mt-3 text-lg text-blue-100">
-
-            Notre équipe est disponible pour répondre à vos questions.
-
-        </p>
-
-
-    </div>
+    </section>
 
 
 
-    {{-- CONTACT INFO --}}
 
-    <div class="grid grid-cols-1 border border-green-400 rounded-b-xl md:grid-cols-3 gap-6 p-4">
+    {{-- ========================================================= --}}
+    {{-- FORMULAIRE DE CONTACT --}}
+    {{-- ========================================================= --}}
+
+    <section
+        id="contact-form"
+        class="bg-gradient-to-br from-white via-blue-50 to-cyan-50
+               rounded-3xl
+               border border-blue-100
+               shadow-xl
+               mx-4
+               p-6 md:p-10">
+
+
+        {{-- HEADER FORMULAIRE --}}
+
+        <div class="text-center mb-10">
+
+
+            <div class="flex justify-center mb-4">
+
+                <div
+                    class="w-16 h-16 rounded-full
+                           bg-gradient-to-br from-blue-100 to-cyan-100
+                           flex items-center justify-center
+                           shadow-md">
+
+                    <i
+                        class="fa-solid fa-paper-plane
+                               text-blue-600 text-2xl">
+                    </i>
+
+                </div>
+
+            </div>
 
 
 
-        <div class="bg-blue-50 rounded-2xl p-6 text-center">
+            <h2
+                class="text-3xl md:text-4xl
+                       font-extrabold
+                       text-blue-800">
 
-            <i class="fa-solid fa-location-dot text-4xl text-blue-700"></i>
+                Envoyez-nous un message
 
-            <h2 class="font-bold text-xl mt-4">
-                Adresse
             </h2>
 
-            <p class="text-gray-600 mt-2">
-                CHL
-                <br>
-                Toliara Madagascar
-            </p>
-
-        </div>
 
 
+            <div
+                class="w-20 h-1
+                       bg-gradient-to-r from-blue-600 to-cyan-500
+                       rounded-full
+                       mx-auto mt-4">
+            </div>
 
 
-        <div class="bg-green-50 rounded-2xl p-6 text-center">
 
-            <i class="fa-solid fa-phone text-4xl text-green-600"></i>
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
 
-            <h2 class="font-bold text-xl mt-4">
-                Téléphone
-            </h2>
-
-            <p class="text-gray-600 mt-2">
-
-                +2634 01 643 82
+                Notre équipe est à votre disposition pour répondre à vos
+                questions et vous accompagner dans vos démarches médicales.
 
             </p>
 
@@ -185,86 +172,353 @@
 
 
 
-        <div class="bg-cyan-50 rounded-2xl p-6 text-center">
+        {{-- ===================================================== --}}
+        {{-- MESSAGE SUCCESS --}}
+        {{-- ===================================================== --}}
 
-            <i class="fa-solid fa-envelope text-4xl text-cyan-600"></i>
+        @if(session('success'))
 
-            <h2 class="font-bold text-xl mt-4">
-                Email
-            </h2>
+            <div
+                class="mb-8
+                       bg-green-50
+                       border border-green-300
+                       text-green-700
+                       px-5 py-4
+                       rounded-xl
+                       shadow-sm">
 
-            <p class="text-gray-600 mt-2">
+                <i class="fa-solid fa-circle-check mr-2"></i>
 
-                contact@chl.mg
+                {{ session('success') }}
 
-            </p>
+            </div>
 
-        </div>
-
-
-
-    </div>
-
-
-
-    {{-- RESEAUX SOCIAUX --}}
-
-    <div class="p-8 border-t">
-
-
-        <h2 class="text-2xl font-bold text-blue-700 text-center">
-
-            Suivez-nous
-
-        </h2>
+        @endif
 
 
 
-        <div class="flex justify-center gap-6 mt-6">
+
+        {{-- ===================================================== --}}
+        {{-- ERREURS --}}
+        {{-- ===================================================== --}}
+
+        @if($errors->any())
+
+            <div
+                class="mb-8
+                       bg-red-50
+                       border border-red-300
+                       text-red-700
+                       px-5 py-4
+                       rounded-xl
+                       shadow-sm">
+
+                <p class="font-bold mb-2">
+
+                    <i
+                        class="fa-solid fa-triangle-exclamation mr-2">
+                    </i>
+
+                    Veuillez corriger les erreurs suivantes :
+
+                </p>
 
 
-            <a href="#"
-            class="text-blue-600 text-3xl">
+                <ul class="list-disc ml-6 text-sm space-y-1">
 
-                <i class="fa-brands fa-facebook"></i>
+                    @foreach($errors->all() as $error)
 
-            </a>
+                        <li>{{ $error }}</li>
 
+                    @endforeach
 
+                </ul>
 
-            <a href="#"
-            class="text-green-600 text-3xl">
+            </div>
 
-                <i class="fa-brands fa-whatsapp"></i>
-
-            </a>
+        @endif
 
 
 
-            <a href="#"
-            class="text-red-600 text-3xl">
 
-                <i class="fa-brands fa-youtube"></i>
+        {{-- ===================================================== --}}
+        {{-- FORMULAIRE --}}
+        {{-- ===================================================== --}}
 
-            </a>
+        <form
+            action="{{ route('contact.message.store') }}"
+            method="POST"
+            class="w-full">
 
-
-
-            <a href="#"
-            class="text-pink-600 text-3xl">
-
-                <i class="fa-brands fa-instagram"></i>
-
-            </a>
+            @csrf
 
 
-        </div>
+
+            {{-- ================================================= --}}
+            {{-- NOM + EMAIL --}}
+            {{-- ================================================= --}}
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
-    </div>
+                {{-- NOM --}}
+
+                <div>
+
+                    <label
+                        class="block text-gray-700
+                               font-semibold mb-2">
+
+                        <i
+                            class="fa-solid fa-user
+                                   text-blue-600 mr-2">
+                        </i>
+
+                        Nom complet
+
+                    </label>
 
 
-</section>
+                    <input
+                        type="text"
+                        name="nom"
+                        value="{{ old('nom') }}"
+                        required
+                        placeholder="Votre nom complet"
+                        class="w-full
+                               bg-white
+                               border border-blue-200
+                               rounded-xl
+                               px-4 py-3
+                               shadow-sm
+                               focus:ring-2
+                               focus:ring-blue-400
+                               focus:border-blue-400
+                               outline-none
+                               transition">
 
+                </div>
+
+
+
+                {{-- EMAIL --}}
+
+                <div>
+
+                    <label
+                        class="block text-gray-700
+                               font-semibold mb-2">
+
+                        <i
+                            class="fa-solid fa-envelope
+                                   text-red-500 mr-2">
+                        </i>
+
+                        Adresse email
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        name="email"
+                        value="{{ old('email') }}"
+                        required
+                        placeholder="exemple@email.com"
+                        class="w-full
+                               bg-white
+                               border border-blue-200
+                               rounded-xl
+                               px-4 py-3
+                               shadow-sm
+                               focus:ring-2
+                               focus:ring-blue-400
+                               focus:border-blue-400
+                               outline-none
+                               transition">
+
+                </div>
+
+
+
+                {{-- TELEPHONE --}}
+
+                <div>
+
+                    <label
+                        class="block text-gray-700
+                               font-semibold mb-2">
+
+                        <i
+                            class="fa-solid fa-phone
+                                   text-green-600 mr-2">
+                        </i>
+
+                        Téléphone
+
+                        <span
+                            class="text-gray-400
+                                   text-sm font-normal">
+
+                            (facultatif)
+
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="telephone"
+                        value="{{ old('telephone') }}"
+                        placeholder="+261 03 012 25"
+                        class="w-full
+                               bg-white
+                               border border-blue-200
+                               rounded-xl
+                               px-4 py-3
+                               shadow-sm
+                               focus:ring-2
+                               focus:ring-blue-400
+                               focus:border-blue-400
+                               outline-none
+                               transition">
+
+                </div>
+
+
+
+                {{-- SUJET --}}
+
+                <div>
+
+                    <label
+                        class="block text-gray-700
+                               font-semibold mb-2">
+
+                        <i
+                            class="fa-solid fa-tag
+                                   text-yellow-500 mr-2">
+                        </i>
+
+                        Sujet
+
+                        <span
+                            class="text-gray-400
+                                   text-sm font-normal">
+
+                            (facultatif)
+
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="sujet"
+                        value="{{ old('sujet') }}"
+                        placeholder="Sujet de votre message"
+                        class="w-full
+                               bg-white
+                               border border-blue-200
+                               rounded-xl
+                               px-4 py-3
+                               shadow-sm
+                               focus:ring-2
+                               focus:ring-blue-400
+                               focus:border-blue-400
+                               outline-none
+                               transition">
+
+                </div>
+
+
+            </div>
+
+
+
+
+            {{-- ================================================= --}}
+            {{-- MESSAGE --}}
+            {{-- ================================================= --}}
+
+            <div class="mt-6">
+
+                <label
+                    class="block text-gray-700
+                           font-semibold mb-2">
+
+                    <i
+                        class="fa-solid fa-message
+                               text-cyan-600 mr-2">
+                    </i>
+
+                    Votre message
+
+                </label>
+
+
+                <textarea
+                    name="message"
+                    rows="6"
+                    required
+                    placeholder="Écrivez votre message ici..."
+                    class="w-full
+                           bg-white
+                           border border-blue-200
+                           rounded-xl
+                           px-4 py-3
+                           shadow-sm
+                           focus:ring-2
+                           focus:ring-blue-400
+                           focus:border-blue-400
+                           outline-none
+                           resize-none
+                           transition">{{ old('message') }}</textarea>
+
+            </div>
+
+
+
+
+            {{-- ================================================= --}}
+            {{-- BOUTON --}}
+            {{-- ================================================= --}}
+
+            <div class="flex justify-center mt-8">
+
+                <button
+                    type="submit"
+                    class="bg-gradient-to-r
+                           from-blue-700
+                           to-cyan-500
+                           hover:from-blue-800
+                           hover:to-cyan-600
+                           text-white
+                           px-10 py-3
+                           rounded-xl
+                           font-bold
+                           shadow-lg
+                           hover:shadow-xl
+                           hover:scale-105
+                           transition duration-300">
+
+                    <i class="fa-solid fa-paper-plane mr-2"></i>
+
+                    Envoyer le message
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </section>
+
+
+</div>
 
 @endsection
+```

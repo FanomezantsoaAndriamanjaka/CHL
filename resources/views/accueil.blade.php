@@ -5,120 +5,83 @@
 
 {{-- HERO SECTION --}}
 
-<section class="mx-4 mt-6 mb-6 rounded-3xl bg-white border border-blue-100 shadow-xl overflow-hidden">
+{{-- HERO SECTION --}}
+<section id="accueil" class="scroll-mt-20 w-full">
+
+    <div class="relative w-full h-96 min-h-screen rounded-2xl overflow-hidden">
+
+        {{-- IMAGE BACKGROUND --}}
+        <img
+            src="{{ asset('images/clinique.jpg') }}"
+            alt="CHL Toliara"
+            class="absolute inset-0 w-full h-full rounded-2xl object-cover"
+        >
+
+        {{-- OVERLAY --}}
+        <div class="absolute inset-0 bg-black/20"></div>
 
 
-    <div class="bg-gradient-to-r from-blue-800 via-blue-700 to-cyan-500 
-                rounded-3xl p-8 md:p-12 text-white">
+        {{-- CONTENU --}}
+        <div class="relative z-10 min-h-screen flex flex-col
+            items-center justify-start
+            px-6 pt-24 md:pt-32 text-white">
 
 
+            {{-- TITRE --}}
+            <div class="text-center">
 
-        {{-- TITRE --}}
+                <h1 class="text-5xl md:text-7xl font-extrabold">
+                    CHL
+                </h1>
 
-        <div class="text-center">
+                <p class="mt-6 text-lg md:text-2xl text-white max-w-4xl mx-auto">
 
+                    Votre centre médical de confiance pour des soins de qualité,
+                    un accompagnement personnalisé et une prise en charge adaptée
+                    à vos besoins.
 
-            <h1 class="text-5xl md:text-6xl font-extrabold">
-
-                CHL
-
-            </h1>
-
-
-            <p class="mt-4 text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
-
-                Votre centre médical de confiance pour des soins de qualité,
-                un accompagnement personnalisé et une prise en charge adaptée
-                à vos besoins.
-
-            </p>
-
-
-        </div>
-
-
-
-
-
-        {{-- LOGO / IMAGE CENTRALE --}}
-
-
-        <div class="flex justify-center mt-10">
-
-
-            <div class="w-44 h-44 md:w-52 md:h-52 
-                        rounded-full bg-white 
-                        shadow-2xl 
-                        border-8 border-blue-100 
-                        overflow-hidden">
-
-
-                <img
-                    src="{{ asset('images/hopital.jpg') }}"
-                    alt="CHL"
-                    class="w-full h-full object-cover">
-
+                </p>
 
             </div>
 
 
-        </div>
+            {{-- BOUTONS --}}
+            <div class="mt-10 flex flex-wrap justify-center gap-5">
+
+                <a href="#"
+                class="bg-white text-blue-700 px-8 py-3 rounded-xl
+                       font-bold shadow-lg hover:scale-105 transition">
+
+                    <i class="fa-solid fa-calendar-check mr-2"></i>
+
+                    Prendre rendez-vous
+
+                </a>
 
 
+                <a href="#services"
+                class="border-2 border-white px-8 py-3 rounded-xl
+                       font-bold hover:bg-white hover:text-blue-700 transition">
 
+                    <i class="fa-solid fa-hospital mr-2"></i>
 
+                    Nos services
 
+                </a>
 
-        {{-- BOUTONS --}}
-
-
-        <div class="mt-10 flex flex-wrap justify-center gap-4">
-
-
-            <a href="{{ route('register') }}"
-            class="bg-white text-blue-700 px-8 py-3 rounded-xl 
-                   font-bold shadow-lg hover:scale-105 transition">
-
-
-                <i class="fa-solid fa-calendar-check mr-2"></i>
-
-                Prendre rendez-vous
-
-
-            </a>
-
-
-
-
-
-            <a href="#services"
-            class="border-2 border-white px-8 py-3 rounded-xl 
-                   font-bold hover:bg-white hover:text-blue-700 transition">
-
-
-                <i class="fa-solid fa-hospital mr-2"></i>
-
-                Nos services
-
-
-            </a>
-
-
+            </div>
 
         </div>
-
-
 
     </div>
-
 
 </section>
 
 <!-- Services -->
-<section id="services" class="mx-4 mt-20  border border-green-400 rounded-2xl bg-white">
+<section class="mx-4 mt-20  border border-green-400 rounded-2xl bg-white">
 
-    <div class="mt-2 mb-2 bg-white mx-2  border border-blue-50  shadow-lg p-8">
-        <h2 class="text-3xl font-bold text-center text-blue-700">
+<div id="services"
+class="scroll-mt-28 mt-2 mb-2 bg-white mx-2 border border-blue-50 shadow-lg p-8">       <h2 class="text-3xl font-bold text-center text-blue-700">
             Nos services médicaux
         </h2>
 
@@ -195,15 +158,18 @@
 
 
 
-<section id="apropos" class="mx-4 mt-6  border border-green-400 rounded-2xl bg-white">
+<section class="mx-4 mt-6  border border-green-400 rounded-2xl bg-white">
   <!-- DESCRIPTION CABINET MEDICAL -->
 
 <div class="mt-2 mb-2 bg-white mx-2  border border-blue-50  shadow-lg pt-2 pl-8 pr-8 pb-8">
 
-        <div class="mt-2 mb-4 bg-white mx-auto  border border-blue-100 rounded-2xl shadow-lg pt-2">
+        <div id="apropos"
+        class="scroll-mt-28 mt-2 mb-4 bg-white mx-auto border border-blue-100 rounded-2xl shadow-lg pt-2">
+
             <h1 class="text-4xl mt-6 font-bold text-blue-700 text-center mb-6">
                 A propos de la CHL Toliara
             </h1>
+
         </div>
  
 
@@ -378,6 +344,756 @@
 
 </div>
 </section>
+
+
+{{-- ========================================================= --}}
+{{-- CONTACT SECTION --}}
+{{-- ========================================================= --}}
+
+<section id="contact" class="mx-4 mt-6  border border-green-400 rounded-2xl bg-white">
+ 
+<div class="mt-2 mb-2 bg-white mx-2  border border-blue-50  shadow-lg pt-2 pl-8 pr-8 pb-8">
+
+
+        {{-- ================================================= --}}
+        {{-- TITRE PRINCIPAL --}}
+        {{-- ================================================= --}}
+
+        <div class="text-center mb-12">
+
+            <div class="flex justify-center mb-4">
+
+                <div class="w-16 h-16 rounded-full
+                            bg-gradient-to-br from-blue-600 to-cyan-500
+                            flex items-center justify-center
+                            shadow-lg">
+
+                    <i class="fa-solid fa-address-book
+                              text-white text-2xl"></i>
+
+                </div>
+
+            </div>
+
+
+            <h1 class="text-3xl md:text-4xl lg:text-5xl
+                       font-extrabold text-blue-800">
+
+                Contact et Adresse
+
+            </h1>
+
+
+            <div class="w-24 h-1
+                        bg-gradient-to-r from-blue-600 to-cyan-500
+                        rounded-full mx-auto mt-4">
+            </div>
+
+
+            <p class="text-gray-600 text-base md:text-lg
+                      max-w-3xl mx-auto mt-5">
+
+                Notre équipe est à votre disposition pour répondre à vos
+                questions et vous accompagner dans vos démarches médicales.
+
+            </p>
+
+        </div>
+
+
+
+        {{-- ================================================= --}}
+        {{-- CONTENU PRINCIPAL --}}
+        {{-- ================================================= --}}
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+
+            {{-- ================================================= --}}
+            {{-- COLONNE GAUCHE : INFORMATIONS --}}
+            {{-- ================================================= --}}
+
+            <div
+                class="lg:col-span-1
+                       bg-white
+                       rounded-3xl
+                       border border-blue-100
+                       shadow-xl
+                       overflow-hidden">
+
+
+                {{-- HEADER INFORMATIONS --}}
+
+                <div
+                    class="bg-gradient-to-r
+                           from-blue-700
+                           to-cyan-500
+                           px-6 py-6
+                           text-white">
+
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-12 h-12
+                                   bg-white/20
+                                   rounded-xl
+                                   flex items-center justify-center">
+
+                            <i class="fa-solid fa-circle-info text-xl"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h2 class="text-xl font-bold">
+                                Nos informations
+                            </h2>
+
+                            <p class="text-blue-100 text-sm mt-1">
+                                Nous contacter
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                {{-- INFORMATIONS --}}
+
+                <div class="p-6 space-y-6">
+
+
+                    {{-- ADRESSE --}}
+
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="w-11 h-11 shrink-0
+                                   rounded-xl
+                                   bg-blue-100
+                                   flex items-center justify-center">
+
+                            <i class="fa-solid fa-location-dot
+                                      text-blue-600 text-lg"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="font-bold text-gray-800">
+                                Siège de la CHL
+                            </p>
+
+                            <p class="text-gray-600 mt-1">
+                                Toliara, Madagascar
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    {{-- TELEPHONE --}}
+
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="w-11 h-11 shrink-0
+                                   rounded-xl
+                                   bg-green-100
+                                   flex items-center justify-center">
+
+                            <i class="fa-solid fa-phone
+                                      text-green-600 text-lg"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="font-bold text-gray-800">
+                                Téléphone
+                            </p>
+
+                            <p class="text-gray-500 text-sm mt-1 mb-2">
+                                Contactez-nous pour vos rendez-vous
+                            </p>
+
+
+                            <div class="space-y-1">
+
+                                <a
+                                    href="tel:+261340164382"
+                                    class="block text-blue-700
+                                           hover:text-blue-900
+                                           hover:underline transition">
+
+                                    <i class="fa-solid fa-phone text-xs mr-2"></i>
+                                    +261 34 01 643 82
+
+                                </a>
+
+
+                                <a
+                                    href="tel:+261330164382"
+                                    class="block text-blue-700
+                                           hover:text-blue-900
+                                           hover:underline transition">
+
+                                    <i class="fa-solid fa-phone text-xs mr-2"></i>
+                                    +261 33 01 643 82
+
+                                </a>
+
+
+                                <a
+                                    href="tel:+261320164382"
+                                    class="block text-blue-700
+                                           hover:text-blue-900
+                                           hover:underline transition">
+
+                                    <i class="fa-solid fa-phone text-xs mr-2"></i>
+                                    +261 32 01 643 82
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    {{-- EMAIL --}}
+
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="w-11 h-11 shrink-0
+                                   rounded-xl
+                                   bg-red-100
+                                   flex items-center justify-center">
+
+                            <i class="fa-solid fa-envelope
+                                      text-red-500 text-lg"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="font-bold text-gray-800">
+                                Email
+                            </p>
+
+                            <a
+                                href="mailto:contact@chl-toliara.com"
+                                class="text-blue-700
+                                       hover:text-blue-900
+                                       hover:underline
+                                       break-all
+                                       transition">
+
+                                contact@chl-toliara.com
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    {{-- HORAIRES --}}
+
+                    <div class="flex items-start gap-4">
+
+                        <div
+                            class="w-11 h-11 shrink-0
+                                   rounded-xl
+                                   bg-yellow-100
+                                   flex items-center justify-center">
+
+                            <i class="fa-solid fa-clock
+                                      text-yellow-600 text-lg"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="font-bold text-gray-800">
+                                Horaires d'ouverture
+                            </p>
+
+                            <p class="text-gray-600 mt-1 leading-relaxed">
+
+                                Lundi - Samedi :
+                                <span class="font-semibold text-gray-800">
+                                    7j/7 et 24h/24
+                                </span>
+
+                                <br>
+
+                                Dimanche :
+                                <span class="text-gray-500">
+                                    ouvert sans médecins traitants
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    {{-- PETIT MESSAGE --}}
+
+                    <div
+                        class="mt-6
+                               bg-gradient-to-r
+                               from-blue-50
+                               to-cyan-50
+                               border border-blue-100
+                               rounded-2xl
+                               p-5">
+
+                        <div class="flex items-start gap-3">
+
+                            <i class="fa-solid fa-heart-pulse
+                                      text-blue-600 text-xl mt-1"></i>
+
+                            <p class="text-gray-600 text-sm leading-relaxed">
+
+                                Votre santé est notre priorité.
+                                N'hésitez pas à nous contacter pour toute
+                                information complémentaire.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+            {{-- ================================================= --}}
+            {{-- COLONNE DROITE : FORMULAIRE --}}
+            {{-- ================================================= --}}
+
+            <section
+                id="contact-form"
+                class="lg:col-span-2
+                       bg-white
+                       rounded-3xl
+                       border border-blue-100
+                       shadow-xl
+                       overflow-hidden">
+
+
+                {{-- HEADER FORMULAIRE --}}
+
+                <div
+                class="bg-gradient-to-r
+                           from-blue-700
+                           to-cyan-500
+                           px-6 py-5
+                           text-white">
+
+
+                    <div class="flex items-center gap-4">
+
+
+                        <div
+                            class="w-14 h-14
+                                   shrink-0
+                                   rounded-2xl
+                                   bg-white/20
+                                   flex items-center justify-center">
+
+                            <i class="fa-solid fa-paper-plane
+                                      text-2xl"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <h2 class="text-2xl md:text-3xl font-extrabold">
+
+                                Envoyez-nous un message
+
+                            </h2>
+
+
+                            <p class="text-blue-100 text-sm md:text-base mt-1">
+
+                                Notre équipe vous répondra dans les meilleurs
+                                délais.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+                {{-- CONTENU FORMULAIRE --}}
+
+                <div class="p-6 md:p-10">
+
+
+                    {{-- SUCCESS --}}
+
+                    @if(session('success'))
+
+                        <div
+                            class="mb-6
+                                   bg-green-50
+                                   border border-green-300
+                                   text-green-700
+                                   px-5 py-4
+                                   rounded-xl
+                                   shadow-sm">
+
+                            <i class="fa-solid fa-circle-check mr-2"></i>
+
+                            {{ session('success') }}
+
+                        </div>
+
+                    @endif
+
+
+
+                    {{-- ERREURS --}}
+
+                    @if($errors->any())
+
+                        <div
+                            class="mb-6
+                                   bg-red-50
+                                   border border-red-300
+                                   text-red-700
+                                   px-5 py-4
+                                   rounded-xl
+                                   shadow-sm">
+
+                            <p class="font-bold mb-2">
+
+                                <i class="fa-solid
+                                          fa-triangle-exclamation mr-2"></i>
+
+                                Veuillez corriger les erreurs suivantes :
+
+                            </p>
+
+
+                            <ul class="list-disc ml-6 text-sm space-y-1">
+
+                                @foreach($errors->all() as $error)
+
+                                    <li>{{ $error }}</li>
+
+                                @endforeach
+
+                            </ul>
+
+                        </div>
+
+                    @endif
+
+
+
+                    {{-- FORMULAIRE --}}
+
+                    <form
+                        action="{{ route('contact.message.store') }}"
+                        method="POST"
+                        class="w-full">
+
+                        @csrf
+
+
+
+                        {{-- NOM + EMAIL --}}
+
+                        <div
+                            class="grid grid-cols-1 md:grid-cols-2
+                                   gap-6">
+
+
+                            {{-- NOM --}}
+
+                            <div>
+
+                                <label
+                                    class="block text-gray-700
+                                           font-semibold mb-2">
+
+                                    <i class="fa-solid fa-user
+                                              text-blue-600 mr-2"></i>
+
+                                    Nom complet
+
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    name="nom"
+                                    value="{{ old('nom') }}"
+                                    required
+                                    placeholder="Votre nom complet"
+                                    class="w-full
+                                           bg-gray-50
+                                           border border-blue-200
+                                           rounded-xl
+                                           px-4 py-3
+                                           focus:bg-white
+                                           focus:ring-2
+                                           focus:ring-blue-400
+                                           focus:border-blue-400
+                                           outline-none
+                                           transition">
+
+                            </div>
+
+
+
+                            {{-- EMAIL --}}
+
+                            <div>
+
+                                <label
+                                    class="block text-gray-700
+                                           font-semibold mb-2">
+
+                                    <i class="fa-solid fa-envelope
+                                              text-red-500 mr-2"></i>
+
+                                    Adresse email
+
+                                </label>
+
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value="{{ old('email') }}"
+                                    required
+                                    placeholder="exemple@email.com"
+                                    class="w-full
+                                           bg-gray-50
+                                           border border-blue-200
+                                           rounded-xl
+                                           px-4 py-3
+                                           focus:bg-white
+                                           focus:ring-2
+                                           focus:ring-blue-400
+                                           focus:border-blue-400
+                                           outline-none
+                                           transition">
+
+                            </div>
+
+
+
+                            {{-- TELEPHONE --}}
+
+                            <div>
+
+                                <label
+                                    class="block text-gray-700
+                                           font-semibold mb-2">
+
+                                    <i class="fa-solid fa-phone
+                                              text-green-600 mr-2"></i>
+
+                                    Téléphone
+
+                                    <span
+                                        class="text-gray-400
+                                               text-sm font-normal">
+
+                                        (facultatif)
+
+                                    </span>
+
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    name="telephone"
+                                    value="{{ old('telephone') }}"
+                                    placeholder="+261 04 643 82"
+                                    class="w-full
+                                           bg-gray-50
+                                           border border-blue-200
+                                           rounded-xl
+                                           px-4 py-3
+                                           focus:bg-white
+                                           focus:ring-2
+                                           focus:ring-blue-400
+                                           focus:border-blue-400
+                                           outline-none
+                                           transition">
+
+                            </div>
+
+
+
+                            {{-- SUJET --}}
+
+                            <div>
+
+                                <label
+                                    class="block text-gray-700
+                                           font-semibold mb-2">
+
+                                    <i class="fa-solid fa-tag
+                                              text-yellow-500 mr-2"></i>
+
+                                    Sujet
+
+                                    <span
+                                        class="text-gray-400
+                                               text-sm font-normal">
+
+                                        (facultatif)
+
+                                    </span>
+
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    name="sujet"
+                                    value="{{ old('sujet') }}"
+                                    placeholder="Sujet de votre message"
+                                    class="w-full
+                                           bg-gray-50
+                                           border border-blue-200
+                                           rounded-xl
+                                           px-4 py-3
+                                           focus:bg-white
+                                           focus:ring-2
+                                           focus:ring-blue-400
+                                           focus:border-blue-400
+                                           outline-none
+                                           transition">
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        {{-- MESSAGE --}}
+
+                        <div class="mt-6">
+
+                            <label
+                                class="block text-gray-700
+                                       font-semibold mb-2">
+
+                                <i class="fa-solid fa-message
+                                          text-cyan-600 mr-2"></i>
+
+                                Votre message
+
+                            </label>
+
+
+                            <textarea
+                                name="message"
+                                rows="7"
+                                required
+                                placeholder="Écrivez votre message ici..."
+                                class="w-full
+                                       bg-gray-50
+                                       border border-blue-200
+                                       rounded-xl
+                                       px-4 py-3
+                                       focus:bg-white
+                                       focus:ring-2
+                                       focus:ring-blue-400
+                                       focus:border-blue-400
+                                       outline-none
+                                       resize-none
+                                       transition">{{ old('message') }}</textarea>
+
+                        </div>
+
+
+
+                        {{-- BOUTON --}}
+
+                        <div class="flex justify-center mt-7">
+
+                            <button
+                                type="submit"
+                                class="inline-flex items-center
+                                       justify-center
+                                       bg-gradient-to-r
+                                       from-blue-700
+                                       to-cyan-500
+                                       hover:from-blue-800
+                                       hover:to-cyan-600
+                                       text-white
+                                       px-10 py-3.5
+                                       rounded-xl
+                                       font-bold
+                                       shadow-lg
+                                       hover:shadow-xl
+                                       hover:-translate-y-0.5
+                                       transition duration-300">
+
+                                <i class="fa-solid fa-paper-plane mr-2"></i>
+
+                                Envoyer le message
+
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
 
 
 @endsection

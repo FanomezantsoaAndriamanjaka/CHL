@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactMessageController;
 
 // ===========================
 // UTILISATEURS
@@ -13,7 +14,6 @@ use App\Http\Controllers\Utilisateurs\ReservationController;
 use App\Http\Controllers\Utilisateurs\NotificationController;
 use App\Http\Controllers\Utilisateurs\FactureController as UserFactureController;
 use App\Http\Controllers\Utilisateurs\PublicationController;
-use App\Http\Controllers\Utilisateurs\ProfilController;
 
 // ===========================
 // ADMIN
@@ -27,28 +27,58 @@ use App\Http\Controllers\Admin\FactureController;
 use App\Http\Controllers\Admin\PublicationController as AdminPublicationController;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | ACCUEIL
 |--------------------------------------------------------------------------
 */
 
-Route::get('/accueil', [HomeController::class, 'index'])->name('accueil');
-
 Route::get('/', function () {
     return redirect()->route('accueil');
 });
 
+Route::get('/accueil', [HomeController::class, 'index'])
+    ->name('accueil');
+
+
+/*
+|--------------------------------------------------------------------------
+| CONTACT
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
+Route::post('/contact/message', [ContactMessageController::class, 'store'])
+    ->name('contact.message.store');
+
+
+/*
+|--------------------------------------------------------------------------
+| PUBLICATIONS PUBLIQUES
+|--------------------------------------------------------------------------
+|
+| Ces routes sont accessibles à tout le monde,
+| même sans connexion.
+|
+*/
+
+Route::get('/publications', [PublicationController::class, 'index'])
+    ->name('publications.index');
+
+Route::get('/publications/{publication}', [PublicationController::class, 'show'])
+    ->name('publications.show');
+
+
 /*
 |--------------------------------------------------------------------------
 | ESPACE UTILISATEUR
 |--------------------------------------------------------------------------
+|
+| Ces routes nécessitent une connexion.
+|
 */
 
 Route::middleware('auth')->group(function () {
@@ -59,7 +89,7 @@ Route::middleware('auth')->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])
+    Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 
 
@@ -122,39 +152,17 @@ Route::middleware('auth')->group(function () {
 
     /*
     |--------------------------------------------------------------------------
-    | Publications
-    |--------------------------------------------------------------------------
-    */
-
-    Route::get('/publications', [PublicationController::class, 'index'])
-        ->name('publications.index');
-
-    Route::get('/publications/{publication}', [PublicationController::class, 'show'])
-        ->name('publications.show');
-    
-   
-
-    
-
-    
-    Route::resource(
-            'publications',
-            PublicationController::class
-        );
-
-    /*
-    |--------------------------------------------------------------------------
     | Profil
     |--------------------------------------------------------------------------
     */
 
-    Route::get('/mon-profil', [ProfilController::class, 'index'])
+    Route::get('/mon-profil', [App\Http\Controllers\Utilisateurs\ProfilController::class, 'index'])
         ->name('profil.index');
 
-    Route::get('/mon-profil/modifier', [ProfilController::class, 'edit'])
+    Route::get('/mon-profil/modifier', [App\Http\Controllers\Utilisateurs\ProfilController::class, 'edit'])
         ->name('profil.edit');
 
-    Route::put('/mon-profil', [ProfilController::class, 'update'])
+    Route::put('/mon-profil', [App\Http\Controllers\Utilisateurs\ProfilController::class, 'update'])
         ->name('profil.update');
 
 
@@ -182,7 +190,11 @@ Route::middleware('auth')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
 
     /*
     |--------------------------------------------------------------------------
@@ -200,95 +212,129 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     |--------------------------------------------------------------------------
     */
 
-    Route::get('/reservations', 
-    [AdminReservationController::class, 'index'])
-        ->name('reservations.index');
-        
+    Route::get('/reservations',
+        [AdminReservationController::class, 'index']
+    )->name('reservations.index');
+
     Route::post('/reservations/{reservation}/accepter',
-        [AdminReservationController::class, 'accepter'])
-        ->name('reservations.accepter');
-    
+        [AdminReservationController::class, 'accepter']
+    )->name('reservations.accepter');
+
     Route::post('/reservations/{reservation}/refuser',
-        [AdminReservationController::class, 'refuser'])
-        ->name('reservations.refuser');
-    
+        [AdminReservationController::class, 'refuser']
+    )->name('reservations.refuser');
+
     Route::get('/reservations/{reservation}',
-        [AdminReservationController::class, 'show'])
-        ->name('reservations.show');
-    
-    Route::get('/patients', 
-    [PatientController::class,'index'])->name('patients.index');
+        [AdminReservationController::class, 'show']
+    )->name('reservations.show');
 
-    Route::get('/utilisateurs/admin/create', [AdminUserController::class, 'createAdmin'])
-        ->name('utilisateurs.admin.create');
-    
-    Route::post('/utilisateurs/admin/store', [AdminUserController::class, 'storeAdmin'])
-        ->name('utilisateurs.admin.store');
 
-        // PATIENTS
+    /*
+    |--------------------------------------------------------------------------
+    | Patients
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/patients',
-        [PatientController::class,'index']
+        [PatientController::class, 'index']
     )->name('patients.index');
+
     Route::get('/patients/{patient}',
-    [PatientController::class,'show'])->name('patients.show');
+        [PatientController::class, 'show']
+    )->name('patients.show');
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | Création administrateur
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('/utilisateurs/admin/create',
+        [AdminUserController::class, 'createAdmin']
+    )->name('utilisateurs.admin.create');
+
+    Route::post('/utilisateurs/admin/store',
+        [AdminUserController::class, 'storeAdmin']
+    )->name('utilisateurs.admin.store');
 
 
-    // FACTURES
+    /*
+    |--------------------------------------------------------------------------
+    | Factures
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/factures',
-        [FactureController::class,'index']
+        [FactureController::class, 'index']
     )->name('factures.index');
 
-
     Route::get('/factures/{facture}',
-    [FactureController::class,'show'])
-    ->name('factures.show');
-
+        [FactureController::class, 'show']
+    )->name('factures.show');
 
     Route::post('/factures/{facture}/payer',
-    [FactureController::class,'payer'])
-    ->name('factures.payer');
-
+        [FactureController::class, 'payer']
+    )->name('factures.payer');
 
     Route::get('/factures/{facture}/pdf',
-    [FactureController::class,'pdf'])
-    ->name('factures.pdf');
+        [FactureController::class, 'pdf']
+    )->name('factures.pdf');
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | PUBLICATIONS ADMIN
+    |--------------------------------------------------------------------------
+    |
+    | CRUD complet : créer, modifier, supprimer...
+    |
+    */
 
-    // PUBLICATIONS
+    Route::resource(
+        'publications',
+        AdminPublicationController::class
+    );
 
-    Route::resource('publications', AdminPublicationController::class);
-    
-    // NOTIFICATIONS ADMIN
+
+    /*
+    |--------------------------------------------------------------------------
+    | NOTIFICATIONS ADMIN
+    |--------------------------------------------------------------------------
+    */
 
     Route::get('/notifications',
         [AdminNotificationController::class, 'index']
     )->name('notifications.index');
 
-
-    // Supprimer toutes les notifications lues
-    Route::delete(
-        '/notifications/supprimer-lues',
+    Route::delete('/notifications/supprimer-lues',
         [AdminNotificationController::class, 'supprimerLues']
     )->name('notifications.supprimerLues');
 
-
-    // Lire notification
     Route::post('/notifications/{notification}/lire',
         [AdminNotificationController::class, 'lire']
     )->name('notifications.lire');
 
-
-    // Supprimer une notification
     Route::delete('/notifications/{notification}',
         [AdminNotificationController::class, 'supprimer']
     )->name('notifications.supprimer');
 
 });
 
+
+/*
+|--------------------------------------------------------------------------
+| DEBUG
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/check-log', function () {
-    return nl2br(file_get_contents(storage_path('logs/laravel.log')));
+    return nl2br(
+        file_get_contents(
+            storage_path('logs/laravel.log')
+        )
+    );
 });
+
+
 require __DIR__.'/auth.php';

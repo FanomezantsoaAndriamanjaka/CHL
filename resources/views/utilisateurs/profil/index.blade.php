@@ -109,7 +109,7 @@
 
                             @endif
 
-                            <div class="absolute bottom-3 right-3 w-6 h-6 bg-green-500 border-4 border-white rounded-full">
+                            <div class="absolute bottom-3 right-3 w-6 h-6 bg-green-500 border-3 border-white rounded-full">
                                 
                             </div>
 
